@@ -90,7 +90,7 @@ bool imuNode::init() {
 		printErrMsgs("Pinging device");
 		return false;
 
-	}
+		}
 
 	ROS_INFO("Setting to idle");
 	if (!imu_->setToIdle()) {
@@ -100,6 +100,7 @@ bool imuNode::init() {
 
 	}
 
+
 	/*ROS_INFO("Checking status");
 	if (!imu_->devStatus()) {
 
@@ -107,7 +108,7 @@ bool imuNode::init() {
 		return false;
 
 	}
-	*/
+
 
 	ROS_INFO("Disabling all streams");
 	if (!imu_->disAllStreams()) {
@@ -116,7 +117,7 @@ bool imuNode::init() {
 		return false;
 
 	}
-
+	*/
 	/*ROS_INFO("Device self test");
 	if (!imu_->selfTest()) {
 
