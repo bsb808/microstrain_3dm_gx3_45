@@ -811,9 +811,9 @@ bool IMU::sendNoDataCmd(uint8_t cmd_set, uint8_t cmd) {
 	size_t n = 8;
 
 	waitForMsg();
-	//cout << "do some reading..." << endl;
+	cout << "do some reading..." << endl;
 	recv = read(n);
-	//cout << "we have some data..." << endl;
+	cout << "we have some data..." << endl;
 
 	if (!crcCheck(recv)) return false;
 
@@ -897,13 +897,14 @@ bool IMU::devStatus() {
 
 	crc(data);
 	write(data);
+	cout << "do some reading..." << endl;
 	waitForMsg();
-
+	cout << "we have some data..." << endl;
 	tbyte_array recv;
-	size_t n = 25;
+	size_t n = 11; //25;
 
 	recv = read(n);
-
+	cout << "we read some data..." << endl;
 	if (!crcCheck(recv)) {
 
 		return false;
@@ -1049,8 +1050,12 @@ bool IMU::crcCheck(tbyte_array& arr) {
 	//cout << arr.size() << endl;
 
 	if ( ((uint8_t)arr[1]+4) != (uint8_t)arr.size() ) {
-
-		cout << "Sizes mismatch." << endl;
+	  
+	  printf("arr[1]=%d arr.size()=%d\n",arr[1],arr.size());
+	  for (int ii; ii<arr.size(); ii++) {
+	    printf("%d: %d\n",ii,arr[ii]);
+	  }
+	  cout << "Sizes mismatch." << endl;
 
 	}
 

@@ -100,13 +100,14 @@ bool imuNode::init() {
 
 	}
 
-	ROS_INFO("Checking status");
+	/*ROS_INFO("Checking status");
 	if (!imu_->devStatus()) {
 
 		printErrMsgs("Checking status");
 		return false;
 
 	}
+	*/
 
 	ROS_INFO("Disabling all streams");
 	if (!imu_->disAllStreams()) {
@@ -116,12 +117,13 @@ bool imuNode::init() {
 
 	}
 
-	ROS_INFO("Device self test");
+	/*ROS_INFO("Device self test");
 	if (!imu_->selfTest()) {
 
 		printErrMsgs("Device self test");
 		return false;
 	}
+	*/
 
 	ROS_INFO("Setting AHRS msg format");
 	if (!imu_->setAHRSMsgFormat()) {
@@ -149,6 +151,7 @@ bool imuNode::init() {
 
 	start();
 
+	/*
 	ROS_INFO("KF initialization");
 	if (!imu_->initKalmanFilter(declination_)) {
 
@@ -156,6 +159,7 @@ bool imuNode::init() {
 		return false;
 
 	}
+	*/
 
 	inited_ = true;
 	return true;
