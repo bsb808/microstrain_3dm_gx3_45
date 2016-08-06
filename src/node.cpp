@@ -88,7 +88,7 @@ bool imuNode::init() {
 	if (!imu_->ping()) {
 
 		printErrMsgs("Pinging device");
-		return false;
+		//return false;
 
 		}
 
@@ -96,16 +96,16 @@ bool imuNode::init() {
 	if (!imu_->setToIdle()) {
 
 		printErrMsgs("Setting to idle");
-		return false;
+		//return false;
 
 	}
 
 
-	/*ROS_INFO("Checking status");
+	ROS_INFO("Checking status");
 	if (!imu_->devStatus()) {
 
 		printErrMsgs("Checking status");
-		return false;
+		//return false;
 
 	}
 
@@ -114,23 +114,23 @@ bool imuNode::init() {
 	if (!imu_->disAllStreams()) {
 
 		printErrMsgs("Disabling all streams");
-		return false;
+		//return false;
 
 	}
-	*/
-	/*ROS_INFO("Device self test");
+
+	ROS_INFO("Device self test");
 	if (!imu_->selfTest()) {
 
 		printErrMsgs("Device self test");
-		return false;
+		//return false;
 	}
-	*/
+
 
 	ROS_INFO("Setting AHRS msg format");
 	if (!imu_->setAHRSMsgFormat()) {
 
 		printErrMsgs("Setting AHRS msg format");
-		return false;
+		//return false;
 
 	}
 
@@ -138,7 +138,7 @@ bool imuNode::init() {
 	if (!imu_->setGPSMsgFormat()) {
 
 			printErrMsgs("Setting GPS msg format");
-			return false;
+			//return false;
 
 		}
 
@@ -146,7 +146,7 @@ bool imuNode::init() {
 	if (!imu_->setNAVMsgFormat()) {
 
 		printErrMsgs("Setting NAV msg format");
-		return false;
+		//return false;
 
 	}
 
